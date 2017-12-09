@@ -21,7 +21,13 @@
                 })
         }
 
+
         agregarProducto(item) {
+            for (var i = 0; i < this.carrito.length; i++) {
+                // if (this.carrito.productos.id == item.id) {
+                //     this.carrito.
+                // }
+            }
             this.carrito.push(item);
             this.descuentoProducto = (item.valor * item.descuento) / 100;
             this.descuentoTotal += this.descuentoProducto;
