@@ -1,0 +1,36 @@
+<div class="container">
+    <div>Tienda</div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-repeat="item in vm.productos">
+                <div class="thumbnail">
+                    <h3>{{item.titulo}}</h3>
+                    <p>Marca: {{item.marca}}</p>
+                    <img src="../../../assets/images/yeoman.png" alt="Se perdio la imagen. :v">
+                    <p>Precio: ${{item.valor}}</p>
+                    <p>Descuento: {{item.descuento}}%</p>
+                    <div class="caption">
+                        <button ng-click="vm.agregarProducto(item)" class="btn btn-success">Añadir al carrito</button>
+                        <button ng-click="vm.ocultarProducto($index)" class="btn btn-danger">No quiero ver esto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2" ng-repeat="item in vm.carrito">
+            <div class="thumbnail">
+                <h3>{{item.titulo}}</h3>
+                <p>Marca: {{item.marca}}</p>
+                <img src="../../../assets/images/yeoman.png" alt="Se perdio la imagen. :v">
+                <p>Precio: ${{item.valor}}</p>
+                <p>Descuento: {{item.descuento}}%</p>
+                <div class="caption">
+                    <button ng-click="vm.eliminarProducto(item, $index)" class="btn btn-danger">Eliminar del carrito</button>
+                </div>
+            </div>
+        </div>
+        <div ng-if="vm.descuentoTotal > 0 && vm.precioTotal > 0">
+            <p>Descuento Total: ${{vm.descuentoTotal}}</p>
+            <p>Total a pagar: ${{vm.precioTotal}}</p>
+        </div>
+    </div>
+</div>
